@@ -1,0 +1,46 @@
+{
+  "behaviors": {
+    "PlayerBehavior": {
+      "scriptId": "3",
+      "line": 2,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "speed",
+          "type": "number"
+        },
+        {
+          "name": "jumpSpeed",
+          "type": "number"
+        },
+        {
+          "name": "flagjump",
+          "type": "number"
+        },
+        {
+          "name": "flagdirect",
+          "type": "number"
+        },
+        {
+          "name": "time",
+          "type": "number"
+        }
+      ]
+    },
+    "EnemyBehavior": {
+      "scriptId": "11",
+      "line": 2,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "speed",
+          "type": "number"
+        },
+        {
+          "name": "flagdirect",
+          "type": "number"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "nextEntryId": 29,
+  "nodes": [
+    {
+      "id": "0",
+      "name": "Level 1",
+      "type": "scene"
+    },
+    {
+      "id": "28",
+      "name": "Level 2",
+      "type": "scene"
+    },
+    {
+      "id": "4",
+      "name": "Tile Set",
+      "type": "tileSet"
+    },
+    {
+      "id": "6",
+      "name": "level 1 - TUTO",
+      "type": "tileMap"
+    },
+    {
+      "id": "24",
+      "name": "level 2",
+      "type": "tileMap"
+    },
+    {
+      "id": "7",
+      "name": "Background",
+      "type": "tileMap"
+    },
+    {
+      "id": "1",
+      "name": "Player",
+      "type": null,
+      "children": [
+        {
+          "id": "2",
+          "name": "Player",
+          "type": "sprite"
+        },
+        {
+          "id": "3",
+          "name": "Behavior",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Enemy",
+      "type": null,
+      "children": [
+        {
+          "id": "9",
+          "name": "Xeno",
+          "type": "sprite"
+        },
+        {
+          "id": "11",
+          "name": "Enemy",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Middleground",
+      "type": null,
+      "children": [
+        {
+          "id": "22",
+          "name": "tile_1",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Game",
+      "type": "script"
+    }
+  ]
+}
