@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 88,
+  "nextEntryId": 90,
   "nodes": [
     {
       "id": "4",
@@ -244,6 +244,18 @@
         {
           "id": "50",
           "name": "Life",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "88",
+      "name": "Foreground",
+      "type": null,
+      "children": [
+        {
+          "id": "89",
+          "name": "lightbug",
           "type": "sprite"
         }
       ]

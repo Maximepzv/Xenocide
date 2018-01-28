@@ -21,7 +21,7 @@ class PlayerBehavior extends Sup.Behavior {
   loopSound = new Sup.Audio.SoundPlayer("Sound/Loop", 1, {loop: true});
   SoundAfter = new Sup.Audio.SoundPlayer("Sound/After", 1, {loop: true});
   
-  update() {;
+  update() {
     if (this.flagjump < 0)
       this.flagjump = 0;
     let time = Date.now() / 1000;
@@ -57,7 +57,7 @@ class PlayerBehavior extends Sup.Behavior {
     if (time - this.rewindtime >= 5 && this.rewind < 5)
       this.rewind += 1;
     // We override the `.x` component based on the player's input
-    //if (Sup.Input.isKeyDown("LEFT") || Sup.Input.getGamepadAxisValue(0, 1) < -0,25) {
+    //if (Sup.Input.isKeyDown("LEFT") || Sup.Input.getGamepadAxisValue(1, 0) < -0,80) {
     if (Sup.Input.isKeyDown("LEFT")) {
       this.flagdirect = 1;
       velocity.x = -this.speed;
@@ -87,11 +87,21 @@ class PlayerBehavior extends Sup.Behavior {
       else if (Sup.Input.isKeyDown("E") && this.flagT == 0) {
         this.flagT = 1;
         this.tTime = time;
-        this.actor.spriteRenderer.setAnimation("Attack");
-        const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("Player"))[0];
-        bullet.setPosition(Sup.getActor("Player").getX(), Sup.getActor("Player").getY(), Sup.getActor("Player").getZ())
+         this.actor.spriteRenderer.setAnimation("Attack");
+        //const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("Player"))[0];
+        if (this.flagdirect == 0) {
+          const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("droite"))[0];
+                  bullet.addBehavior(BulletBehavior)
+
+        }
+        else {
+          const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("gauche"))[0];
+                  bullet.addBehavior(BulletBehavior)
+
+        }
+        //bullet.setPosition(Sup.getActor("Player").getX(), Sup.getActor("Player").getY(), Sup.getActor("Player").getZ())
         //bullet.setPosition(this.actor.getX(), this.actor.getY(), this.actor.getZ());    
-        bullet.addBehavior(BulletBehavior)
+        //bullet.addBehavior(BulletBehavior)
       } else if(Sup.Input.wasKeyJustPressed("Z") && this.rewind == 5) {
           this.rewind = 0;
           Sup.getActor("Rewind").spriteRenderer.setAnimation("Recharge");
@@ -156,7 +166,6 @@ class PlayerBehavior extends Sup.Behavior {
       Sup.getActor("Life").spriteRenderer.setAnimation("1point")
      if (this.hp <= 0) {
       Sup.getActor("Life").spriteRenderer.setAnimation("0point")
-      this.actor.spriteRenderer.setAnimation("Die");
      }
     //UI Rewind
     if (this.rewind == 5)
