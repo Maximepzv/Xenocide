@@ -22,7 +22,35 @@
           "type": "number"
         },
         {
-          "name": "time",
+          "name": "stocktime",
+          "type": "number"
+        },
+        {
+          "name": "rewindtime",
+          "type": "number"
+        },
+        {
+          "name": "saveTime",
+          "type": "number"
+        },
+        {
+          "name": "flagrand",
+          "type": "number"
+        },
+        {
+          "name": "rewind",
+          "type": "number"
+        },
+        {
+          "name": "hp",
+          "type": "number"
+        },
+        {
+          "name": "it",
+          "type": "number"
+        },
+        {
+          "name": "startLoop",
           "type": "number"
         }
       ]
@@ -37,7 +65,48 @@
           "type": "number"
         },
         {
+          "name": "jumpSpeed",
+          "type": "number"
+        },
+        {
           "name": "flagdirect",
+          "type": "number"
+        },
+        {
+          "name": "RangeDetection",
+          "type": "number"
+        },
+        {
+          "name": "attackDommage",
+          "type": "number"
+        },
+        {
+          "name": "hp",
+          "type": "number"
+        },
+        {
+          "name": "startPosX",
+          "type": "number"
+        },
+        {
+          "name": "StartPosY",
+          "type": "number"
+        }
+      ]
+    },
+    "BulletBehavior": {
+      "scriptId": "41",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ScriptBehavior": {
+      "scriptId": "79",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "buttonIndex",
           "type": "number"
         }
       ]

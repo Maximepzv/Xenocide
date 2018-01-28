@@ -5,16 +5,16 @@
   ],
   "filtering": "pixelated",
   "pixelsPerUnit": 32,
-  "framesPerSecond": 10,
-  "opacity": null,
+  "framesPerSecond": 12,
+  "opacity": 1,
   "alphaTest": 0.1,
   "frameOrder": "rows",
   "grid": {
-    "width": 97,
-    "height": 71
+    "width": 90,
+    "height": 90
   },
   "origin": {
-    "x": 0.46,
+    "x": 0.5,
     "y": 0.5
   },
   "animations": [
@@ -22,56 +22,77 @@
       "id": "0",
       "name": "Idle",
       "startFrameIndex": 0,
-      "endFrameIndex": 5,
+      "endFrameIndex": 17,
       "speed": 1
     },
     {
       "id": "1",
       "name": "Run",
-      "startFrameIndex": 6,
-      "endFrameIndex": 13,
+      "startFrameIndex": 20,
+      "endFrameIndex": 25,
       "speed": 1
     },
     {
       "id": "2",
       "name": "Jump",
-      "startFrameIndex": 13,
-      "endFrameIndex": 16,
+      "startFrameIndex": 28,
+      "endFrameIndex": 32,
       "speed": 1
     },
     {
       "id": "3",
       "name": "Fall",
-      "startFrameIndex": 17,
-      "endFrameIndex": 19,
+      "startFrameIndex": 36,
+      "endFrameIndex": 38,
       "speed": 1
     },
     {
       "id": "4",
       "name": "Roll",
-      "startFrameIndex": 20,
-      "endFrameIndex": 24,
+      "startFrameIndex": 51,
+      "endFrameIndex": 54,
       "speed": 1
     },
     {
       "id": "5",
       "name": "Attack",
-      "startFrameIndex": 25,
-      "endFrameIndex": 28,
+      "startFrameIndex": 0,
+      "endFrameIndex": 1,
       "speed": 1
     },
     {
       "id": "6",
       "name": "Die",
-      "startFrameIndex": 29,
-      "endFrameIndex": 35,
+      "startFrameIndex": 64,
+      "endFrameIndex": 82,
       "speed": 1
     },
     {
-      "id": "7",
-      "name": "Climb",
-      "startFrameIndex": 36,
-      "endFrameIndex": 39,
+      "id": "8",
+      "name": "Land",
+      "startFrameIndex": 40,
+      "endFrameIndex": 44,
+      "speed": 1
+    },
+    {
+      "id": "9",
+      "name": "Rewind_launch",
+      "startFrameIndex": 56,
+      "endFrameIndex": 58,
+      "speed": 1
+    },
+    {
+      "id": "10",
+      "name": "Rewind_land",
+      "startFrameIndex": 60,
+      "endFrameIndex": 62,
+      "speed": 1
+    },
+    {
+      "id": "11",
+      "name": "DashUp",
+      "startFrameIndex": 86,
+      "endFrameIndex": 90,
       "speed": 1
     }
   ],
