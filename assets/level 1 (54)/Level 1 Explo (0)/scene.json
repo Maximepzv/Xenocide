@@ -339,7 +339,7 @@
         }
       ],
       "position": {
-        "x": 198.017,
+        "x": 198,
         "y": 5.669,
         "z": -100
       },
@@ -867,6 +867,33 @@
       "visible": true,
       "layer": 0,
       "prefab": null
+    },
+    {
+      "id": "32",
+      "name": "Larva1",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": 43.49300003051758,
+        "y": 17.80000114440918,
+        "z": 0.5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "44"
+      }
     }
   ]
 }

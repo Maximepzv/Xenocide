@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 80,
+  "nextEntryId": 88,
   "nodes": [
     {
       "id": "4",
@@ -12,19 +12,19 @@
       "type": null,
       "children": [
         {
+          "id": "84",
+          "name": "TitleScreen",
+          "type": "sprite"
+        },
+        {
           "id": "76",
           "name": "Menu",
           "type": "scene"
         },
         {
-          "id": "79",
-          "name": "Script",
+          "id": "86",
+          "name": "MenuUi",
           "type": "script"
-        },
-        {
-          "id": "77",
-          "name": "Font",
-          "type": "font"
         }
       ]
     },
@@ -37,12 +37,17 @@
           "id": "75",
           "name": "Loop",
           "type": "sound"
+        },
+        {
+          "id": "87",
+          "name": "After",
+          "type": "sound"
         }
       ]
     },
     {
       "id": "54",
-      "name": "level 1",
+      "name": "Level 1",
       "type": null,
       "children": [
         {
@@ -180,6 +185,11 @@
         {
           "id": "35",
           "name": "Beacon",
+          "type": "sprite"
+        },
+        {
+          "id": "85",
+          "name": "Beacon-Transition",
           "type": "sprite"
         }
       ]

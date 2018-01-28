@@ -10,7 +10,7 @@
           "type": "Camera",
           "config": {
             "formatVersion": 1,
-            "mode": "orthographic",
+            "mode": "perspective",
             "fov": 10,
             "orthographicScale": 10,
             "viewport": {
@@ -24,78 +24,19 @@
             "farClippingPlane": 1000
           },
           "id": "1"
-        }
-      ],
-      "position": {
-        "x": 0,
-        "y": 0,
-        "z": 10
-      },
-      "orientation": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "w": 1
-      },
-      "scale": {
-        "x": 1,
-        "y": 1,
-        "z": 1
-      },
-      "visible": true,
-      "layer": 0,
-      "prefab": null
-    },
-    {
-      "id": "3",
-      "name": "Boutons",
-      "children": [
+        },
         {
-          "id": "4",
-          "name": "PLAY",
-          "children": [],
-          "components": [
-            {
-              "type": "TextRenderer",
-              "config": {
-                "formatVersion": 2,
-                "fontAssetId": "77",
-                "text": "PLAY",
-                "alignment": "center",
-                "verticalAlignment": "center",
-                "size": null,
-                "color": null,
-                "overrideOpacity": false,
-                "opacity": null
-              },
-              "id": "0"
-            }
-          ],
-          "position": {
-            "x": 2.779900088906288,
-            "y": 2.7621178030967712,
-            "z": 0
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "ScriptBehavior",
+            "propertyValues": {}
           },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "visible": true,
-          "layer": 0,
-          "prefab": null
+          "id": "2"
         }
       ],
-      "components": [],
       "position": {
-        "x": -2.6890337467193604,
-        "y": -3.3689346313476562,
+        "x": 0,
+        "y": 0,
         "z": 0
       },
       "orientation": {
@@ -114,15 +55,15 @@
       "prefab": null
     },
     {
-      "id": "5",
-      "name": "Background",
+      "id": "7",
+      "name": "background",
       "children": [],
       "components": [
         {
           "type": "SpriteRenderer",
           "config": {
             "formatVersion": 1,
-            "spriteAssetId": "30",
+            "spriteAssetId": "84",
             "animationId": null,
             "horizontalFlip": false,
             "verticalFlip": false,
@@ -138,9 +79,9 @@
         }
       ],
       "position": {
-        "x": 0.23630665242671967,
-        "y": -1.373868465423584,
-        "z": -5
+        "x": 0,
+        "y": 0,
+        "z": -200
       },
       "orientation": {
         "x": 0,
@@ -149,9 +90,9 @@
         "w": 1
       },
       "scale": {
-        "x": 0.2,
-        "y": 0.2,
-        "z": 0.2
+        "x": 1,
+        "y": 1,
+        "z": 1
       },
       "visible": true,
       "layer": 0,

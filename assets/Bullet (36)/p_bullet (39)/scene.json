@@ -30,8 +30,8 @@
             "formatVersion": 2,
             "type": "box",
             "movable": true,
-            "width": 0.3,
-            "height": 0.3,
+            "width": 0.5,
+            "height": 0.6,
             "offset": {
               "x": 0,
               "y": 0

@@ -5,26 +5,35 @@ class EnemyBehavior extends Sup.Behavior {
   jumpSpeed = 0.30;
   flagdirect = 0;
   RangeDetection = 7
+  RangeAttack = 1.65
   attackDommage = 2
-  hp = 5
+  hp = 6
   startPosX = this.actor.getX();
-  StartPosY = this.actor.getY();  
-  
+  StartPosY = this.actor.getY();
+  animation = 0;
    
   
    update() {
-    
       Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies())
       let velocity = this.actor.arcadeBody2D.getVelocity()
 
-      if (Sup.getActor("Player").getX() >= this.actor.getX() - this.RangeDetection && Sup.getActor("Player").getX() <= this.actor.getX() + this.RangeDetection
-          && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeDetection) {
+      if (this.hp <= 0) {
+        this.actor.spriteRenderer.setAnimation("Death")
+        this.animation++;
+        if (this.animation >= 90)
+          this.actor.destroy()
+      } else {
+       
+
+        if (Sup.getActor("Player").getX() >= this.actor.getX() - this.RangeDetection && Sup.getActor("Player").getX() <= this.actor.getX() + this.RangeDetection
+          && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeDetection && this.hp > 0) {
           this.actor.spriteRenderer.setAnimation("Attack")
 
           if (this.actor.getX() < Sup.getActor("Player").getX()) {
+            this.actor.spriteRenderer.setHorizontalFlip(true);
             velocity.x = this.speed
-            if (Sup.getActor("Player").getX() >= this.actor.getX() - 1 && Sup.getActor("Player").getX() <= this.actor.getX() + 1
-            && Sup.getActor("Player").getY() <= this.actor.getY() + 1) {
+            if (Sup.getActor("Player").getX() >= this.actor.getX() - this.RangeAttack && Sup.getActor("Player").getX() <= this.actor.getX() + this.RangeAttack
+            && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeAttack) {
               this.actor.spriteRenderer.setAnimation("Attack")
               let playerVelocity = Sup.getActor("Player").arcadeBody2D.getVelocity()
             //playerVelocity.x = 4
@@ -37,9 +46,10 @@ class EnemyBehavior extends Sup.Behavior {
           }
         
           if (this.actor.getX() > Sup.getActor("Player").getX()) {
+            this.actor.spriteRenderer.setHorizontalFlip(false);
             velocity.x = -this.speed
-            if (Sup.getActor("Player").getX() >= this.actor.getX() - 3 && Sup.getActor("Player").getX() <= this.actor.getX() + 3
-            && Sup.getActor("Player").getY() <= this.actor.getY() + 3) {
+            if (Sup.getActor("Player").getX() >= this.actor.getX() - this.RangeAttack && Sup.getActor("Player").getX() <= this.actor.getX() + this.RangeAttack
+            && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeAttack) {
               this.actor.spriteRenderer.setAnimation("Attack")
               let playerVelocity = Sup.getActor("Player").arcadeBody2D.getVelocity()
              // playerVelocity.x = -4
@@ -66,7 +76,7 @@ class EnemyBehavior extends Sup.Behavior {
      //Sup.log("HP = " + Sup.getActor("Player").getBehavior(PlayerBehavior).hp)
     this.actor.arcadeBody2D.setVelocity(velocity);
   }
-  
+   }
 }
 
 Sup.registerBehavior(EnemyBehavior);

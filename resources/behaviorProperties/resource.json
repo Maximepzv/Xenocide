@@ -42,6 +42,14 @@
           "type": "number"
         },
         {
+          "name": "tTime",
+          "type": "number"
+        },
+        {
+          "name": "flagT",
+          "type": "number"
+        },
+        {
           "name": "hp",
           "type": "number"
         },
@@ -77,6 +85,10 @@
           "type": "number"
         },
         {
+          "name": "RangeAttack",
+          "type": "number"
+        },
+        {
           "name": "attackDommage",
           "type": "number"
         },
@@ -91,6 +103,10 @@
         {
           "name": "StartPosY",
           "type": "number"
+        },
+        {
+          "name": "animation",
+          "type": "number"
         }
       ]
     },
@@ -98,18 +114,18 @@
       "scriptId": "41",
       "line": 0,
       "parentBehavior": null,
-      "properties": []
-    },
-    "ScriptBehavior": {
-      "scriptId": "79",
-      "line": 0,
-      "parentBehavior": null,
       "properties": [
         {
-          "name": "buttonIndex",
+          "name": "starter",
           "type": "number"
         }
       ]
+    },
+    "MenuUiBehavior": {
+      "scriptId": "86",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

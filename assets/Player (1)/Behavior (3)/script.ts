@@ -11,22 +11,20 @@ class PlayerBehavior extends Sup.Behavior {
   saveTime = 0;
   flagrand = 0;
   rewind = 5;
+  tTime = 0;
+  flagT = 0;
   hp = 5;
   it = 0;
   startLoop = 0;
   tabX = [this.actor.getX(), this.actor.getX(), this.actor.getX(), this.actor.getX(), this.actor.getX()]    
   tabY = [this.actor.getY(), this.actor.getY(), this.actor.getY(), this.actor.getY(), this.actor.getY()]
   loopSound = new Sup.Audio.SoundPlayer("Sound/Loop", 1, {loop: true});
-
-  update() { 
-    if (Sup.Input.wasKeyJustPressed("SPACE"))
-      if (this.loopSound.isPlaying)
-        this.loopSound.stop();
-      else
-        this.loopSound.play();
+  SoundAfter = new Sup.Audio.SoundPlayer("Sound/After", 1, {loop: true});
+  
+  update() {;
     if (this.flagjump < 0)
       this.flagjump = 0;
-    let time = Math.round(Date.now() / 1000);
+    let time = Date.now() / 1000;
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
     // As explained above, we get the current velocity
     let velocity = this.actor.arcadeBody2D.getVelocity();
@@ -52,11 +50,14 @@ class PlayerBehavior extends Sup.Behavior {
       this.it = (this.it + 1) % 5;
       this.saveTime = time;
     }
-    if (time - this.rewindtime >= 5 && this.rewind < 5) {
+    //
+    if (time - this.tTime >= 0.5 && this.flagT == 1)
+      this.flagT = 0;
+    // Rewind
+    if (time - this.rewindtime >= 5 && this.rewind < 5)
       this.rewind += 1;
-    }
     // We override the `.x` component based on the player's input
-    //if (Sup.Input.isKeyDown("LEFT") || Sup.Input.getGamepadAxisValue(0, A) < -0,25) {
+    //if (Sup.Input.isKeyDown("LEFT") || Sup.Input.getGamepadAxisValue(0, 1) < -0,25) {
     if (Sup.Input.isKeyDown("LEFT")) {
       this.flagdirect = 1;
       velocity.x = -this.speed;
@@ -83,7 +84,9 @@ class PlayerBehavior extends Sup.Behavior {
         this.flagjump--;
         this.actor.spriteRenderer.setAnimation("Roll");    
       } // Attack
-      else if (Sup.Input.isKeyDown("E")) {
+      else if (Sup.Input.isKeyDown("E") && this.flagT == 0) {
+        this.flagT = 1;
+        this.tTime = time;
         this.actor.spriteRenderer.setAnimation("Attack");
         const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("Player"))[0];
         bullet.setPosition(Sup.getActor("Player").getX(), Sup.getActor("Player").getY(), Sup.getActor("Player").getZ())
@@ -94,13 +97,18 @@ class PlayerBehavior extends Sup.Behavior {
           Sup.getActor("Rewind").spriteRenderer.setAnimation("Recharge");
           this.rewindtime = time;
           this.actor.spriteRenderer.setAnimation("Rewind_launch");
-          //this.actor.setPosition(this.tabX[this.it], this.tabY[this.it]);
           let BackX = this.tabX[this.it] - this.actor.getX()
           let BackY = this.tabY[this.it] - this.actor.getY()
           velocity.x = BackX
           velocity.y = BackY
           this.actor.arcadeBody2D.setVelocity(velocity);
         this.actor.spriteRenderer.setAnimation("Rewind_land");
+      } else if (Sup.Input.wasKeyJustPressed("S")) {
+          if ((this.actor.getX() >= 206 && this.actor.getX() <= 211) && (this.actor.getY() >= 55 && this.actor.getY() <= 59)) {
+              this.loopSound.stop();
+              this.SoundAfter.play();
+              Sup.log("checkpoint here");
+          }
       } else {
         // Here, we should play either "Idle" or "Run" depending on the horizontal speed
         //a rajouter si probleme en animation (&& this.actor.spriteRenderer.isAnimationPlaying() == false)
@@ -119,7 +127,7 @@ class PlayerBehavior extends Sup.Behavior {
       if (Sup.Input.wasKeyJustPressed("UP")) {
         this.flagjump -= 20;
         velocity.y = 0.45;
-        this.actor.spriteRenderer.setAnimation("Jump");
+        this.actor.spriteRenderer.setAnimation("DashUp");
       } else  // Here, we should play either "Jump" or "Fall" depending on the vertical speed
         if (velocity.y >= 0) this.actor.spriteRenderer.setAnimation("Jump");
         else this.actor.spriteRenderer.setAnimation("Fall");

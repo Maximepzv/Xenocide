@@ -32,6 +32,13 @@
       "startFrameIndex": 12,
       "endFrameIndex": 24,
       "speed": 1
+    },
+    {
+      "id": "2",
+      "name": "Death",
+      "startFrameIndex": 24,
+      "endFrameIndex": 32,
+      "speed": 1
     }
   ],
   "mapSlots": {
