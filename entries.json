@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 90,
+  "nextEntryId": 97,
   "nodes": [
     {
       "id": "4",
@@ -41,6 +41,41 @@
         {
           "id": "87",
           "name": "After",
+          "type": "sound"
+        },
+        {
+          "id": "90",
+          "name": "Rewind",
+          "type": "sound"
+        },
+        {
+          "id": "91",
+          "name": "Jump",
+          "type": "sound"
+        },
+        {
+          "id": "93",
+          "name": "Dash",
+          "type": "sound"
+        },
+        {
+          "id": "94",
+          "name": "Dash2",
+          "type": "sound"
+        },
+        {
+          "id": "92",
+          "name": "Death",
+          "type": "sound"
+        },
+        {
+          "id": "95",
+          "name": "Shoot",
+          "type": "sound"
+        },
+        {
+          "id": "96",
+          "name": "Pain",
           "type": "sound"
         }
       ]

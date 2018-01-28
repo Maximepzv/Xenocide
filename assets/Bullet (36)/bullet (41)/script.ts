@@ -8,20 +8,23 @@ class BulletBehavior extends Sup.Behavior {
       this.starter = 1;
     }    
     let velocity = this.actor.arcadeBody2D.getVelocity();
-    if (direction == 0)
-      velocity.x = 0.4
-    else
+    Sup.log(direction);
+    if (direction == 0) {
+        velocity.x = 0.4
+      Sup.log("droite")
+    } else {
       velocity.x = -0.4
+    }
     velocity.y = 0;
     this.actor.arcadeBody2D.setVelocity(velocity);
-    //Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
-    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, [Sup.getActor("Larva1").arcadeBody2D]);
+    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+    //Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, [Sup.getActor("Larva1").arcadeBody2D]);
       if (this.actor.arcadeBody2D.getTouches().bottom
          || this.actor.arcadeBody2D.getTouches().left
          || this.actor.arcadeBody2D.getTouches().right
          || this.actor.arcadeBody2D.getTouches().top) {
-          Sup.getActor("Larva1").getBehavior(EnemyBehavior).hp -= 2
           Sup.log("DESTROYY")
+          Sup.getActor("Larva1").getBehavior(EnemyBehavior).hp -= 2
           this.actor.destroy();
           this.destroy();
       }

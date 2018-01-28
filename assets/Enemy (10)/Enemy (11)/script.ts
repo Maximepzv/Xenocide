@@ -5,7 +5,7 @@ class EnemyBehavior extends Sup.Behavior {
   jumpSpeed = 0.30;
   flagdirect = 0;
   RangeDetection = 7
-  RangeAttack = 1.65
+  RangeAttack = 1.70
   attackDommage = 2
   hp = 6
   startPosX = this.actor.getX();
@@ -33,7 +33,7 @@ class EnemyBehavior extends Sup.Behavior {
             this.actor.spriteRenderer.setHorizontalFlip(true);
             velocity.x = this.speed
             if (Sup.getActor("Player").getX() >= this.actor.getX() - this.RangeAttack && Sup.getActor("Player").getX() <= this.actor.getX() + this.RangeAttack
-            && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeAttack) {
+            && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeAttack && Sup.getActor("Player").getY() >= this.actor.getY() - this.RangeAttack) {
               this.actor.spriteRenderer.setAnimation("Attack")
               let playerVelocity = Sup.getActor("Player").arcadeBody2D.getVelocity()
             //playerVelocity.x = 4
@@ -49,7 +49,7 @@ class EnemyBehavior extends Sup.Behavior {
             this.actor.spriteRenderer.setHorizontalFlip(false);
             velocity.x = -this.speed
             if (Sup.getActor("Player").getX() >= this.actor.getX() - this.RangeAttack && Sup.getActor("Player").getX() <= this.actor.getX() + this.RangeAttack
-            && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeAttack) {
+            && Sup.getActor("Player").getY() <= this.actor.getY() + this.RangeAttack && Sup.getActor("Player").getY() >= this.actor.getY() - this.RangeAttack) {
               this.actor.spriteRenderer.setAnimation("Attack")
               let playerVelocity = Sup.getActor("Player").arcadeBody2D.getVelocity()
              // playerVelocity.x = -4

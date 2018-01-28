@@ -20,12 +20,23 @@ class PlayerBehavior extends Sup.Behavior {
   tabY = [this.actor.getY(), this.actor.getY(), this.actor.getY(), this.actor.getY(), this.actor.getY()]
   loopSound = new Sup.Audio.SoundPlayer("Sound/Loop", 1, {loop: true});
   SoundAfter = new Sup.Audio.SoundPlayer("Sound/After", 1, {loop: true});
+  animation = 0;
+  VelocityDeathBar = 0
   
   update() {
+    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+    if (this.hp <= 0) {
+        Sup.Audio.playSound("Sound/Death");
+        this.actor.spriteRenderer.setAnimation("Die")
+        this.animation++;
+        if (this.animation >= 90) {
+          this.actor.destroy()
+          Sup.loadScene("Level 1/Level 1 Explo");
+        }
+    } else {
     if (this.flagjump < 0)
       this.flagjump = 0;
     let time = Date.now() / 1000;
-    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
     // As explained above, we get the current velocity
     let velocity = this.actor.arcadeBody2D.getVelocity();
     //recharge nrj
@@ -75,16 +86,19 @@ class PlayerBehavior extends Sup.Behavior {
     if (touchBottom) {
       //this.flagjump = 60;
       if (Sup.Input.wasKeyJustPressed("UP")) {
+        Sup.Audio.playSound("Sound/Jump");
         velocity.y = this.jumpSpeed;
         this.actor.spriteRenderer.setAnimation("Jump");
       } // Dash
       else if (Sup.Input.isKeyDown("A") && this.flagjump >= 20) {
+        Sup.Audio.playSound("Sound/Dash2");
         if (this.flagdirect == 1) velocity.x = -0.60;
         else velocity.x = 0.60;
         this.flagjump--;
         this.actor.spriteRenderer.setAnimation("Roll");    
       } // Attack
       else if (Sup.Input.isKeyDown("E") && this.flagT == 0) {
+       /* Sup.Audio.playSound("Sound/Shoot");
         this.flagT = 1;
         this.tTime = time;
          this.actor.spriteRenderer.setAnimation("Attack");
@@ -92,7 +106,6 @@ class PlayerBehavior extends Sup.Behavior {
         if (this.flagdirect == 0) {
           const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("droite"))[0];
                   bullet.addBehavior(BulletBehavior)
-
         }
         else {
           const bullet = Sup.appendScene("Bullet/p_bullet", Sup.getActor("gauche"))[0];
@@ -102,7 +115,8 @@ class PlayerBehavior extends Sup.Behavior {
         //bullet.setPosition(Sup.getActor("Player").getX(), Sup.getActor("Player").getY(), Sup.getActor("Player").getZ())
         //bullet.setPosition(this.actor.getX(), this.actor.getY(), this.actor.getZ());    
         //bullet.addBehavior(BulletBehavior)
-      } else if(Sup.Input.wasKeyJustPressed("Z") && this.rewind == 5) {
+     */ } else if(Sup.Input.wasKeyJustPressed("Z") && this.rewind == 5) {
+          Sup.Audio.playSound("Sound/Rewind");
           this.rewind = 0;
           Sup.getActor("Rewind").spriteRenderer.setAnimation("Recharge");
           this.rewindtime = time;
@@ -118,6 +132,7 @@ class PlayerBehavior extends Sup.Behavior {
               this.loopSound.stop();
               this.SoundAfter.play();
               Sup.log("checkpoint here");
+              Sup.loadScene("Level 2/Level 2");
           }
       } else {
         // Here, we should play either "Idle" or "Run" depending on the horizontal speed
@@ -128,6 +143,7 @@ class PlayerBehavior extends Sup.Behavior {
     } else if (this.flagjump > 0) {
       //Dash en l'air
       if (Sup.Input.isKeyDown("A")) {
+        Sup.Audio.playSound("Sound/Dash");
         if (this.flagdirect == 1) velocity.x = -0.65;
         else velocity.x = 0.65;
         this.flagjump--;
@@ -135,6 +151,7 @@ class PlayerBehavior extends Sup.Behavior {
       } else
       // Doublejump
       if (Sup.Input.wasKeyJustPressed("UP")) {
+        Sup.Audio.playSound("Sound/Dash");
         this.flagjump -= 20;
         velocity.y = 0.45;
         this.actor.spriteRenderer.setAnimation("DashUp");
@@ -142,6 +159,7 @@ class PlayerBehavior extends Sup.Behavior {
         if (velocity.y >= 0) this.actor.spriteRenderer.setAnimation("Jump");
         else this.actor.spriteRenderer.setAnimation("Fall");
     }
+    
     // Finally, we apply the velocity back to the ArcadePhysics body
     this.actor.arcadeBody2D.setVelocity(velocity);
     //UI Charge
@@ -153,7 +171,8 @@ class PlayerBehavior extends Sup.Behavior {
       Sup.getActor("Charge").spriteRenderer.setAnimation("One")
     if (this.flagjump <= 20)
       Sup.getActor("Charge").spriteRenderer.setAnimation("Zero")
-    //UI Life
+    }
+        //UI Life
     if (this.hp == 5)
       Sup.getActor("Life").spriteRenderer.setAnimation("5points")
     if (this.hp == 4)

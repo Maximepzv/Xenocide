@@ -60,6 +60,14 @@
         {
           "name": "startLoop",
           "type": "number"
+        },
+        {
+          "name": "animation",
+          "type": "number"
+        },
+        {
+          "name": "VelocityDeathBar",
+          "type": "number"
         }
       ]
     },

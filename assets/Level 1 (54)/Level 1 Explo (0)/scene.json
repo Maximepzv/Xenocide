@@ -63,6 +63,50 @@
       "prefab": null
     },
     {
+      "id": "57",
+      "name": "DeathBar",
+      "children": [],
+      "components": [
+        {
+          "type": "SpriteRenderer",
+          "config": {
+            "formatVersion": 1,
+            "spriteAssetId": "47",
+            "animationId": "0",
+            "horizontalFlip": false,
+            "verticalFlip": false,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "ffffff",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": 278.668,
+        "y": 25.688,
+        "z": 10
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 3,
+        "y": 3,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
       "id": "2",
       "name": "Player",
       "children": [
@@ -1535,33 +1579,6 @@
       "prefab": null
     },
     {
-      "id": "32",
-      "name": "Larva1",
-      "children": [],
-      "components": [],
-      "position": {
-        "x": 43.49300003051758,
-        "y": 17.80000114440918,
-        "z": 0.5
-      },
-      "orientation": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "w": 1
-      },
-      "scale": {
-        "x": 1,
-        "y": 1,
-        "z": 1
-      },
-      "visible": true,
-      "layer": 0,
-      "prefab": {
-        "sceneAssetId": "44"
-      }
-    },
-    {
       "id": "35",
       "name": "Larva1",
       "children": [],
@@ -1596,6 +1613,60 @@
       "position": {
         "x": 96.57270812988281,
         "y": 22.853116989135742,
+        "z": 0.5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "44"
+      }
+    },
+    {
+      "id": "58",
+      "name": "Larva1",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": 145.90406799316406,
+        "y": 35.93613052368164,
+        "z": 0.5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "44"
+      }
+    },
+    {
+      "id": "59",
+      "name": "Larva1",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": 178.3915557861328,
+        "y": 35.055931091308594,
         "z": 0.5
       },
       "orientation": {
